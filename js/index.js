@@ -18,6 +18,11 @@ aboutUsLink.addEventListener('mousedown', e => {
     e.target.style.color = 'red';
 });
 
+// added a link to the href in the HTML for the about us link, tried ot make it not follow that link using preventDefault below... to no avail. 
+aboutUsLink.addEventListener('click', e => {
+    e.target.preventDefault();
+});
+
 blogLink.addEventListener('mouseup', e => {
     TweenMax.to(e.currentTarget, 1, {
         width:200,
@@ -61,14 +66,14 @@ adventureImg.addEventListener('mouseleave', e => {
 });
 
 funImg.addEventListener('mouseenter', e => {
-    TweenMax.to(e.currentTarget, 1, {
+    TweenMax.to(e.currentTarget, 2, {
         width:200,
         ease:Bounce.easeOut
     });
 });
 
 destinationImg.addEventListener('dragstart', e => {
-    TweenMax.to(e.currentTarget, 1, {
+    TweenMax.to(e.currentTarget, 3, {
         width:200,
         ease:Bounce.easeOut
     });
