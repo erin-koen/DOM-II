@@ -11,59 +11,86 @@ const contactLink = navLinks[3];
 // assigning eventListeners to each link
 console.log(navLinks);
 homeLink.addEventListener('mouseover', e => {
-    homeLink.style.display = 'none';
+    e.target.style.display = 'none';
 });
 
 aboutUsLink.addEventListener('mousedown', e => {
-    aboutUsLink.style.color = 'red';
+    e.target.style.color = 'red';
 });
 
 blogLink.addEventListener('mouseup', e => {
-
+    TweenMax.to(e.currentTarget, 1, {
+        width:200,
+        ease:Bounce.easeOut
+    });
 });
 
-contactLink.addEventListener('drag / drop', e => {
-
+contactLink.addEventListener('dragend', e => {
+    TweenMax.to(e.currentTarget, 1, {
+        width:200,
+        ease:Bounce.easeOut
+    });
 });
 
 // image element assignent
 
 const funBusImg = document.querySelector('.fun-bus-img');
-const adventureImg = document.querySelector('adventure-img');
-const funImg = document.querySelector('fun-img');
-const destinationImg = document.querySelector('destination-img');
+const adventureImg = document.querySelector('.adventure-img');
+console.log(adventureImg);
+const funImg = document.querySelector('.fun-img');
+console.log(funImg);
+const destinationImg = document.querySelector('.destination-img');
+console.log(destinationImg);
 
 // assigning eventListeners to each image
 
 funBusImg.addEventListener('load', e => {
-
+    TweenMax.from(e.currentTarget, 1, {
+        width:200,
+        ease:Bounce.easeOut,
+        repeat:2,
+        yoyo:true,    
+    });
 });
 
-funBusImg.addEventListener('focus', e => {
-
+adventureImg.addEventListener('mouseleave', e => {
+    TweenMax.from(e.currentTarget, 1, {
+        width:200,
+        ease:Bounce.easeOut
+    });
 });
 
-funBusImg.addEventListener('resize', e => {
-
+funImg.addEventListener('mouseenter', e => {
+    TweenMax.to(e.currentTarget, 1, {
+        width:200,
+        ease:Bounce.easeOut
+    });
 });
 
-funBusImg.addEventListener('dragstart', e => {
-
+destinationImg.addEventListener('dragstart', e => {
+    TweenMax.to(e.currentTarget, 1, {
+        width:200,
+        ease:Bounce.easeOut
+    });
 });
 
 // button element assignment
 
-const signUpBtns = document.querySelectorAll('.btn');
-console.log(signUpBtns);
+// NVM got rid of buttons
+ 
+// Selecting text sections to mess around with nested eventlisteners and stopping propagation
 
-signUpBtns[0].addEventListener('select', e => {
+let bigTxt = document.querySelector('.test-content');
+let lilTxt = document.querySelector('.test-content h2');
 
+console.log(bigTxt);
+console.log(lilTxt);
+
+bigTxt.addEventListener('cut', e => {
+    e.target.style.border = '1px solid red';
 });
 
-signUpBtns[1].addEventListener('dbclick', e => {
-
-});
-
-signUpBtns[2].addEventListener('contextmenu', e => {
-
-});
+lilTxt.addEventListener('cut', e => {
+    e.stopPropagation();
+    e.target.style.color = 'red';
+})
