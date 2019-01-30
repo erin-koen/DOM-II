@@ -18,10 +18,14 @@ aboutUsLink.addEventListener('mousedown', e => {
     e.target.style.color = 'red';
 });
 
-// added a link to the href in the HTML for the about us link, tried ot make it not follow that link using preventDefault below... to no avail. 
+//prevented the about link from launching into a new tab using preventDefault
+
 aboutUsLink.addEventListener('click', e => {
-    e.target.preventDefault();
+    e.preventDefault();
 });
+
+// added a link to the href in the HTML for the about us link, tried ot make it not follow that link using preventDefault below... to no avail. 
+
 
 blogLink.addEventListener('mouseup', e => {
     TweenMax.to(e.currentTarget, 1, {
